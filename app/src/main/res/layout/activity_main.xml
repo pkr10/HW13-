@@ -44,7 +44,7 @@
     </LinearLayout>
 
     <TextView
-        android:text="오늘 모모모"
+        android:text="오늘 과일모먹지?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -62,11 +62,12 @@
 
     <TextView
         android:text="시작부터"
+
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
         android:id="@+id/textView5" />
 

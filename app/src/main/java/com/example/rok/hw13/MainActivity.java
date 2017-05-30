@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -25,18 +26,7 @@ public class MainActivity extends AppCompatActivity {
     int a;
     int j = 0;
     int k;
-//    Handler handler = new Handler(){
-//        @Override
-//        public void handleMessage(Message msg) {
-//            for(int i = 0;i<5;i++){
-//                i1.setImageResource(picture[i]);
-//                if(i ==4){
-//                    i = 0;
-//                }
-//            }
-//
-//        }
-//    };
+
     int[] picture = {R.drawable.carrot,R.drawable.grape,R.drawable.strawberry,R.drawable.watermelon,R.drawable.pineapple};
     String[] name = {"당근","포도","딸기","수박","파인애플"};
     @Override
@@ -58,28 +48,31 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.imageView:
-                a = Integer.parseInt(e1.getText().toString());
-                if(value == 0){
-                    mytasks = new Mytasks();
-                    mytasks.execute();
-                    value  = 1;
-
-//                    Mythread th = new Mythread();
-//                    th.start();
+                if(e1.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(),"시간을 입력해주세요",Toast.LENGTH_SHORT).show();
                 }
-                else{
-                    mytasks.cancel(true);
-                    value = 0;
-                    if(j ==-1){
-                        t1.setText(name[name.length]+"선택("+k+")초");
-                    }
-                    else{
-                        t1.setText(name[j-1]+"선택("+k+")초");
+                else {
+
+
+                    a = Integer.parseInt(e1.getText().toString());
+                    if (value == 0) {
+                        mytasks = new Mytasks();
+                        mytasks.execute();
+                        value = 1;
+
+                    } else {
+                        mytasks.cancel(true);
+                        value = 0;
+                        if (j == -1) {
+                            t1.setText(name[name.length] + "선택(" + k + ")초");
+                        } else {
+                            t1.setText(name[j - 1] + "선택(" + k + ")초");
+
+                        }
 
                     }
-
+                    t1.setVisibility(View.VISIBLE);
                 }
-                t1.setVisibility(View.VISIBLE);
 
 
 
